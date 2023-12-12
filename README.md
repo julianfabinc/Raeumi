@@ -10,6 +10,7 @@ Sara: General information:
 - which lego parts do we use and how many of them?
 ## Navigating though space
 Julian: hardware
+
 Jonas: software
 ## Avoid collisions with obstacles
 Julian: Hardware
@@ -17,17 +18,25 @@ Jonas: Software
 Abstandsensor, was passiert wenn er auf ein Hinderniss trifft
 ## collect objects
 Julian: Hardware filter + sensor + objects
+
 Jonas: Hardware arm + software
+
 Farbe des Objekts erkennen, Gabelarm, usw,
 ## sort Objects of different colors
 Julian: Hardware
+
 Jonas: Software
+
 Farbsensor, Schubkurbel die den Container bewegt
 ## Results
 Sara: what the robot can and cannot do
+
 ## Strengths and weaknesses
 Sara: write this part, but we can brainstorm together
-##(Delete this in the end) General tasks:
+
+## (Delete this in the end) General tasks:
 Julian: make and cut Videos and Photos
+
 Sara: check grammar and spelling
+
 Jonas: manage sources
