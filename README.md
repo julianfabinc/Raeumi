@@ -44,11 +44,24 @@ Now we only have to implement when to stop and what to do if we come across an o
 Jonas: Software
 Abstandsensor, was passiert wenn er auf ein Hinderniss trifft
 ## collect objects
-Julian: Hardware filter + sensor + objects
+First of all we have to know what kind of objects we want to collect. At first, we wanted to have the opportunity to collect any object form. But therefore our collection arm would have to be very complex and would definetly need at least two or more ports on the computer to fullfill this task. The problem here is that we only have three ports left and we know we definetly need at least one for the object container and one for the color sensor. This means we need to constuct a collection device which works with only one motor. This makes it very hard to build something like a pair of pliers. So we decided to go with something like a fork to pick up objects. But this also means that we only can collect certain objects. 
+
+So first of all lets take a look at how we want to identify the objects. Since we whant to sort the objects by color, we need the color sensor which we want to place at the center front. As objects usually lie on the ground, it makes sense to place the sensor as close as possible to the ground. This works really easy with our base, because we simply have to mount it at the desired position. However, with the current design, you need a good amount of luck that the objects come right in front of the sonsor. And if they don't the robot would just continue driving ahead and push the object with it without noticing it. Consequently it is desirable to identify the object at any position at the front of the robot. Since it is not possible to enlargen the sensor, we build a funnel in front of the color sensor, which places the objects right in front of it. So overall you need the following bricks for the color sensor and the funnel:
+
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/661e12bf-41c3-44ed-bfc9-31bccfd3965f" height=300 />
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/f15e32f2-fcca-4f1c-afe7-70339c15f0ee" height=300 />
+
+Now we can identify the objetcts, but not yet collect them. So we need to build an arm which works simular to a fork. Hier Jonas schreiben (Ich hab für die Teile und so Screenshots von den Videos gemacht)
 
 Jonas: Hardware arm + software
 
-Farbe des Objekts erkennen, Gabelarm, usw,
+Of course we still need objects to be picked up. Since we want to sort by color, we need similar or identical objects of different color. Additionally the should allow the arm to pick them up. Since the objects are very light and don't have a lot of resistance, it seems to be the easiest way to build something on the objects which allows the arm to thread in. And since our robot cannot turn the objects around to the fitting position, it should be possible to thread in from any direction. So we constructed the objects as the following:
+
+
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/74a605e0-2750-4dd9-8b61-1b2e8dd897d6" height=280 />
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/b05f3f48-4e2f-4401-8455-89294e0d1349" height=280 />
+
+
 ## sort Objects of different colors
 Julian: Hardware
 
