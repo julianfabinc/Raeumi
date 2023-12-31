@@ -33,7 +33,14 @@ Now the Hardware allows the robot to drive. But first, we need to implement the 
 
 Jonas: software
 ## Avoid collisions with obstacles
-Julian: Hardware
+Now the robot can drive straight forward or in curves and even turn while staying in the same position. However it does not know yet when to do what. Our goal is that the robot usually drives straight ahead and if it comes accross an obstacles it should stop and turn into another direction. In order to achieve that we need a ultrasound sensor. Your need the following bricks:
+
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/60d8a8e6-0501-45d7-852f-f1fc43565d9b" height=300 />
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/bd8cd66d-e2d4-48f7-8513-11cdbf8bbc60" height=300 />
+
+The challange here is to detect the obstacles wo don't want to collide with, but not to stop if we come accross on of the objects we want to collect. Therefore the sensor ist placed in sufficiant height. Additionally the sonsor should not interfere with the collection arm, which is why it is not placed at the center but more on the left side of the robot. 
+Now we only have to implement when to stop and what to do if we come across an obstacle
+
 Jonas: Software
 Abstandsensor, was passiert wenn er auf ein Hinderniss trifft
 ## collect objects
