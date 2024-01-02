@@ -32,6 +32,8 @@ To move the robot forward, we first create a custom code block named "Forward." 
 
 First, we set the speed to 35% of the maximum speed. Subsequently, the second block is executed to initiate the forward movement.
 
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/18c62eab-1712-458e-a3b8-2109a92e2541" height=200 />
+
 
 
 ## Avoid collisions with obstacles
