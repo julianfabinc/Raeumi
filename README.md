@@ -36,7 +36,7 @@ First, we set the speed to 35% of the maximum speed. Subsequently, the second bl
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/26bd341c-52ec-4c7e-8aa7-9dd76748ff3f" height=200/>
 
-
+This code causes the robot to keep driving straight ahead. In the following sections, this code is supplemented further and further so that the robot can navigate through the room.
 
 
 
