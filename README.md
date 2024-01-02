@@ -28,11 +28,15 @@ Then the wheel get mounted to the base. Don't forget to connect the wheels with 
 Now the Hardware allows the robot to drive. But first, we need to implement the software.
 
 ## Forward Movement Code Description
-To move the robot forward, we first create a custom code block named "Forward." The use of custom code blocks helps maintain code clarity. Within this block, we only need two "Movement" blocks.
+To move the robot forward, we need two code blocks. The first block begins with an "Event" block and serves as the foundation for our entire subsequent code. This "Event" block determines what happens when the program starts. For forward movement, we initially define the motors responsible for propulsion (in our case, the motors connected to ports A and B), along with a loop that executes the custom "forward" block.
 
-First, we set the speed to 35% of the maximum speed. Subsequently, the second block is executed to initiate the forward movement.
+Now, let's create a custom code block named "Forward." The use of custom code blocks helps maintain code clarity. Within this block, we only need two "Movement" blocks. In the Lego Spike environment, individual motor control is not necessary for forward movement. The "Movement" blocks automatically control both motors.
 
-<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/18c62eab-1712-458e-a3b8-2109a92e2541" height=200 />
+First, we set the speed to 35% of the maximum speed. Subsequently, the second block is executed to initiate forward movement. This structuring is aimed at simplifying comprehension and facilitating code maintenance.
+
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/26bd341c-52ec-4c7e-8aa7-9dd76748ff3f" height=200/>
+
+
 
 
 
