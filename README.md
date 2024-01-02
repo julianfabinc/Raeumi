@@ -27,11 +27,13 @@ Then the wheel get mounted to the base. Don't forget to connect the wheels with 
 
 Now the Hardware allows the robot to drive. But first, we need to implement the software.
 
+## Forward Movement Code Description
+To move the robot forward, we first create a custom code block named "Forward." The use of custom code blocks helps maintain code clarity. Within this block, we only need two "Movement" blocks.
+
+First, we set the speed to 35% of the maximum speed. Subsequently, the second block is executed to initiate the forward movement.
 
 
 
-
-Jonas: software
 ## Avoid collisions with obstacles
 Now the robot can drive straight forward or in curves and even turn while staying in the same position. However it does not know yet when to do what. Our goal is that the robot usually drives straight ahead and if it comes accross an obstacles it should stop and turn into another direction. In order to achieve that we need a ultrasound sensor. Your need the following bricks:
 
