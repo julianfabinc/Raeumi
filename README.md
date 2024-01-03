@@ -75,8 +75,16 @@ Now that the robot can pick up the objects, it still needs to sort them by color
 
 Since the objects are quite big, the container also has to be big so the obects can fit inside. Additionally there are several ways to move the container to the required position. One way would be to simply rotate the container 180°. The other, and probably better way is to move it from side to side. This has the advantage that it can be stabilised easier and it seems more natural. But in order to move the container from side to side we have to translate the circular movement of the motor to a straight movement. Therefore we build a mechanical linkage called "Schubkurbel", which basically is the same linkage as in a petrol engine. For this linkage we need a rail in which on part of the linkage can move from side to side. This is the part that will be connected to the object container. For this we need the bricks as followed
 
-
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/6b1775d1-2492-4cac-98ea-1694c3178144" height=200 />
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/6566fb98-6328-4c64-8d31-785375e90633" height=200 />
+
+On top of this mechanical linkage we will put the container. As already mentioned, the container consists of two small containers, which each have to be big enough to provide space for at least on of the objects. From experimenting with the collection arm, we learned that a higher wall at the end of the container is usefull to prevent the object from overshooting the target. On the other side lower wall at the front side facilitates the acces to the container. Because the container turned out to be quit big, we tried to construct it in a way that keeps the container lightweight. This means that we tried to use more of a grid-like structure than actual walls. Furthermore it was challanging to build the container with many useful bricks already being used on other components. So do not be surprised that the container looks a bit unconventional at first.
+
+<img src="https://github.com/julianfabinc/Raeumi/assets/153210113/7d9038ba-d979-42bc-90d0-a46faaa2b3d7" height="200">
+<img src="https://github.com/julianfabinc/Raeumi/assets/153210113/eacfb576-ac2a-46e6-af83-861052aeeb6a" height="200">
+
+As the container is quite big and only mouted on the narrow linkage, it requires further stabilization. With the computer being in the perfect height, it offer a good opportunity to provide stabilization for the container. We therefore built an addition rail on the computer, on which the application you can see in the lower part of the right picture above can slide along. With that the container is stable enoug to move from side to side and catch the objects put in by the collection arm
+
 
 Jonas: Software
 
