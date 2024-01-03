@@ -85,6 +85,10 @@ On top of this mechanical linkage we will put the container. As already mentione
 
 As the container is quite big and only mouted on the narrow linkage, it requires further stabilization. With the computer being in the perfect height, it offer a good opportunity to provide stabilization for the container. We therefore built an addition rail on the computer, on which the application you can see in the lower part of the right picture above can slide along. With that the container is stable enoug to move from side to side and catch the objects put in by the collection arm
 
+<img src="https://github.com/julianfabinc/Raeumi/assets/153210113/a8522f3b-b6c5-42c8-bd85-cb984d99de81" height="200">
+
+With that, the robot has all the hardware it needs to fulfill its task. But there is still some work to do on the software.
+
 
 Jonas: Software
 
