@@ -118,7 +118,6 @@ The following image displays the entire code required for the robot to navigate 
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/b55e1926-3aaa-4b8d-980a-bfa6016d62fb" height = 200/>
 
-
 Of course we still need objects to be picked up. Since we want to sort by color, we need similar or identical objects of different color. Additionally the should allow the arm to pick them up. Since the objects are very light and don't have a lot of resistance, it seems to be the easiest way to build something on the objects which allows the arm to thread in. And since our robot cannot turn the objects around to the fitting position, it should be possible to thread in from any direction. So we constructed the objects as the following:
 
 
@@ -145,8 +144,20 @@ As the container is quite big and only mouted on the narrow linkage, it requires
 
 With that, the robot has all the hardware it needs to fulfill its task. But there is still some work to do on the software.
 
+## Code for sorting objects
+To ensure the robot can correctly sort objects into the collection container based on their colors, only a few additional modifications are needed in the code. Firstly, for the collection container, we need a neutral starting position after the program initiates, similar to what we did for the arm. For this, we manually identify the motor angle where the collection container is centered on the robot (in our case, 10 degrees). After determining this angle, we add two lines of "Motor Blocks" in the "Base Block" to control the motor responsible for the platform's movement (in our case, Port F). In the first line, we set the speed to 15%, and in the second line, we define how the target angle should be reached. The modifications in the "Base Block" are shown in the image below.
 
-Jonas: Software
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/136cadcc-9f3a-4650-a3f0-c506b8c0128e" height = 200/>
+
+Next, we need to specify how the collection container should be controlled upon detecting a color. This integration is done in the custom block "color green." Beforehand, we manually set the angle on the collection container motor so that the arm is directly above the desired compartment of the container (in our case, 271 degrees). This angle becomes the target angle of the motor when the color green is detected. In this step, we also set the target angle of the arm, which was left open in the previous section. It should be chosen so that the arm is low enough to place the object in the collection container but high enough to prevent the object from being lifted again (in our case, 129 degrees). This angle must be individually determined. We integrate the rise of the collection container after capturing the object and before moving the arm upward. For this, we again use two lines of "Motor Blocks" that define the speed and the method of reaching the target angle. We chose a speed of 15% and the shortest path to the target angle. After placing the object in the container, we move the container back to the neutral starting position. For this, we use the same lines we added to our "Base Block" and also include them at the end of our custom block. The modifications in the custom block "color green" are depicted in the image below.
+
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/7dd48094-7ba2-4ea2-8add-0037ceb9221f" height = 200(>
+
+To sort two different colors, we add another if-condition in the Base Block, specifying what to do when the color sensor detects another color (in our case, red). Next, we need another custom block, "color red." We can simplify this by copying the "color green" block. The crucial aspect is to manually determine and supplement the corresponding angles for the sorting to function.
+
+After these adjustments, the entire code is ready for the robot to execute the planned tasks.
+
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/2699e95a-8cbd-458c-adb9-a011db8341bd" height = 200/>
 
 Farbsensor, Schubkurbel die den Container bewegt
 ## Results
