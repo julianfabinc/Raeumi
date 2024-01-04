@@ -49,8 +49,19 @@ Now the robot can drive straight forward or in curves and even turn while stayin
 The challange here is to detect the obstacles wo don't want to collide with, but not to stop if we come accross on of the objects we want to collect. Therefore the sensor ist placed in sufficiant height. Additionally the sonsor should not interfere with the collection arm, which is why it is not placed at the center but more on the left side of the robot. 
 Now we only have to implement when to stop and what to do if we come across an obstacle
 
-Jonas: Software
-Abstandsensor, was passiert wenn er auf ein Hinderniss trifft
+## Code description for collision avoidance
+For collision avoidance, we first create another custom block named "reverse and turn." In the first line, we set the speed for the robot to move backward. The next line defines how far the robot should move backward. We have chosen a distance of 7 cm to ensure that the robot avoids colliding with an obstacle during the turn. The third line specifies how the robot should turn. We have decided that the robot should always turn to the right, selecting a random angle between 360 and 560 degrees. We opted for a random angle to allow the robot to cover as much area of the room as quickly as possible.
+
+<img  src = "https://github.com/julianfabinc/Raeumi/assets/153218995/fd33fef6-f4a4-4107-b820-000748e18ebd" height = 200/>
+
+Next, we will integrate the "reverse and turn" block into our infinite loop using an if statement. The condition for executing the "reverse_and_turn" block is based on the ultrasonic sensor connected to port D. A corresponding "sensor block" needs to be inserted into the if condition. We have set a distance of 12 cm or closer as the condition, as this distance ensures that the robot's arm does not collide with the obstacle.
+
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/d8a26e42-f749-47d0-bf8b-cf608203f2b0" height = 200/>
+
+The following image displays the complete Lego Spike code that we utilized for room navigation and collision avoidance.
+
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/57689ea3-be88-4d1f-8960-9f7fd1332b48" height = 200/>
+
 ## collect objects
 First of all we have to know what kind of objects we want to collect. At first, we wanted to have the opportunity to collect any object form. But therefore our collection arm would have to be very complex and would definetly need at least two or more ports on the computer to fullfill this task. The problem here is that we only have three ports left and we know we definetly need at least one for the object container and one for the color sensor. This means we need to constuct a collection device which works with only one motor. This makes it very hard to build something like a pair of pliers. So we decided to go with something like a fork to pick up objects. But this also means that we only can collect certain objects. 
 
