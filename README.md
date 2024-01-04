@@ -62,6 +62,7 @@ The following image displays the complete Lego Spike code that we utilized for r
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/57689ea3-be88-4d1f-8960-9f7fd1332b48" height = 200/>
 
+
 ## collect objects
 First of all we have to know what kind of objects we want to collect. At first, we wanted to have the opportunity to collect any object form. But therefore our collection arm would have to be very complex and would definetly need at least two or more ports on the computer to fullfill this task. The problem here is that we only have three ports left and we know we definetly need at least one for the object container and one for the color sensor. This means we need to constuct a collection device which works with only one motor. This makes it very hard to build something like a pair of pliers. So we decided to go with something like a fork to pick up objects. But this also means that we only can collect certain objects. 
 
@@ -72,7 +73,17 @@ So first of all lets take a look at how we want to identify the objects. Since w
 
 Now we can identify the objetcts, but not yet collect them. So we need to build an arm which works simular to a fork. Hier Jonas schreiben (Ich hab für die Teile und so Screenshots von den Videos gemacht)
 
-Jonas: Hardware arm + software
+Jonas: Hardware arm
+
+## Code for collecting objects
+
+In this section, we first describe the code solely responsible for the arm movement. Later, sections will be added to this code for the actual collection and sorting. For the arm movement, there are two code segments to consider: one being our "base block," serving as the foundation for the execution of various code blocks, and another being a custom block.
+
+Firstly, we ensure that the arm is in a neutral starting position after the program starts, where it remains stable during the robot's movement through the room and does not impede the robot. For this purpose, a manual angle is set for the arm, where the link of the arm connected to the motor slightly points upwards, and the second link is folded backward. In our case, the angle is 205 degrees but may vary and should be individually determined. To achieve this angle at the start of the program, the speed of the motor connected to the arm (in our case, this is port E) is set first. The next line specifies that the desired angle should be reached in the shortest path. "Motor blocks" are used for these two lines.
+The "basic block" with the changes mentioned is shown below. 
+
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/1a0b62f1-ce55-4fb1-85df-d62e6c75ef57" height = 200/>
+
 
 Of course we still need objects to be picked up. Since we want to sort by color, we need similar or identical objects of different color. Additionally the should allow the arm to pick them up. Since the objects are very light and don't have a lot of resistance, it seems to be the easiest way to build something on the objects which allows the arm to thread in. And since our robot cannot turn the objects around to the fitting position, it should be possible to thread in from any direction. So we constructed the objects as the following:
 
