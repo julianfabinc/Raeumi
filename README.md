@@ -217,10 +217,43 @@ After these adjustments, the entire code is ready for the robot to execute the p
 
 Farbsensor, Schubkurbel die den Container bewegt
 ## Results
-Sara: what the robot can and cannot do
+As a result of Räumi's advanced features, it is capable of completing these tasks:
+- Autonomous Navigation: The robot can autonomously navigate through spaces, making use of it's two-wheeled drive system that allows it to move forward, backward, and turn as needed.
+
+- Obstacle Avoidance: Equipped with an ultrasound sensor, Räumi can detect obstacles in its path and adjust it's movements to avoid collisions.
+
+- Object Collection: Using a color sensor and a fork-like arm, the robot can identify and collect specific objects efficiently.
+
+- Sorting by Color: Räumi is capable of sorting the collected objects based on their colors. The color sensor determines the object's color, and the robot uses a mechanical linkage system to move the object container to the correct position for sorting.
+
+- Efficient Arm Movements: The robot's code enables precise and efficient movements of its collection arm, ensuring optimal positioning for object retrieval.
+
+In summary, Räumi is a versatile robot that can autonomously explore environments, collect specific objects, and organize them based on color, showcasing a sophisticated interplay of hardware and software capabilities.
 
 ## Strengths and weaknesses
-Sara: write this part, but we can brainstorm together
+
+### Strengths:
+
+- Versatility: Räumi demonstrates versatility by autonomously navigating spaces, collecting specific objects, and sorting them based on color.
+
+- Obstacle Avoidance: The inclusion of an ultrasound sensor enables effective obstacle detection, allowing the robot to navigate without collisions.
+
+- Precise Object Collection: The fork-like arm and color sensor combination ensures precise and efficient collection of objects, enhancing the robot's functionality.
+
+- Mechanical Linkage System: The "Schubkurbel" mechanical linkage system for moving the object container adds an innovative and efficient solution for sorting objects.
+
+- Integration of Hardware and Software: Räumi showcases a seamless integration of hardware and software, allowing for complex functionalities and autonomous operations.
+
+- Creative Design: The design incorporates creative solutions, such as the funnel for consistent object positioning and the mechanical linkage for container movement.
+
+### Weaknesses:
+
+- Limited Object Variety: The robot's design limits its ability to collect only specific objects that can be picked up by the fork-like arm, restricting its versatility in handling a wide range of objects.
+
+- Limited Sorting Capacity: The robot's sorting capability is limited to the number of compartments in the container and the colors it can detect, potentially restricting its sorting capacity.
+
+- Complex Construction: The mechanical linkage system and the overall construction may be challenging for some users, affecting ease of assembly and maintenance.
+
 
 ## (Delete this in the end) General tasks:
 Julian: make and cut Videos and Photos
