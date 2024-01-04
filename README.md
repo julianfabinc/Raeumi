@@ -76,17 +76,15 @@ Now we can identify the objetcts, but not yet collect them. So we need to build 
 Jonas: Hardware arm
 
 ## Code for collecting objects
-
-### Neutral starting position of the arm
 In this section, we first describe the code solely responsible for the arm movement. Later, sections will be added to this code for the actual collection and sorting. For the arm movement, there are two code segments to consider: one being our "base block," serving as the foundation for the execution of various code blocks, and another being a custom block.
 
+### Neutral starting position of the arm
 Firstly, we ensure that the arm is in a neutral starting position after the program starts, where it remains stable during the robot's movement through the room and does not impede the robot. For this purpose, a manual angle is set for the arm, where the link of the arm connected to the motor slightly points upwards, and the second link is folded backward. In our case, the angle is 205 degrees but may vary and should be individually determined. To achieve this angle at the start of the program, the speed of the motor connected to the arm (in our case, this is port E) is set first. The next line specifies that the desired angle should be reached in the shortest path. "Motor blocks" are used for these two lines.
 The "basic block" with the changes mentioned is shown below. 
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/1a0b62f1-ce55-4fb1-85df-d62e6c75ef57" height = 200/>
 
 ### Downward and upward movement of the arm
-
 Of course we still need objects to be picked up. Since we want to sort by color, we need similar or identical objects of different color. Additionally the should allow the arm to pick them up. Since the objects are very light and don't have a lot of resistance, it seems to be the easiest way to build something on the objects which allows the arm to thread in. And since our robot cannot turn the objects around to the fitting position, it should be possible to thread in from any direction. So we constructed the objects as the following:
 
 
