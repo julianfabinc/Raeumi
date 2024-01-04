@@ -6,51 +6,51 @@ Räumi is a Lego Spike Robot that can navigate through space without colliding w
 
 General information:
 
-Räumi is  designed for navigation, obstacle avoidance, and object collection and sorting. Its stable base, equipped with a drive section featuring two wheels and motors, enables controlled movement. The robot's software includes code for forward movement, collision avoidance using an ultrasound sensor, and precise object collection with a fork-like arm. The color sensor aids in sorting objects, and a unique mechanical linkage, "Schubkurbel," moves the object container for efficient sorting. Räumi showcases a seamless integration of hardware and software, making it a versatile and creative robotic solution.
+Räumi is  designed for navigation, obstacle avoidance, and object collection and sorting. It's stable base, equipped with a drive section featuring two wheels and motors, enables controlled movement. The robot's software includes code for forward movement, collision avoidance using an ultrasound sensor, and precise object collection with a fork-like arm. The color sensor aids in sorting objects, and a unique mechanical linkage, "Schubkurbel," moves the object container for efficient sorting. Räumi showcases a seamless integration of hardware and software, making it a versatile and creative robotic solution.
 
-lego parts
-2 Large Motor
-2 Medium Motor
-1 Distance Sensor
-1 Color Sensor
-2 Wheel ø56
-10 Cross axle 3m
-3 Cross axle 7m
-3 Brick 2x4 w/cross hole, green
-3 Brick 2x4 w/cross hole, red
-2 Ball cup
-2 white Ball
-2 Panel 11x19 
-2 Technic frame 11x15, azure
-2 Technic frame 7x11, magenta
-1 Large Hub
-8 Technic 3m beam, yellow
-12 Technic 5m beam, magenta
-12 Technic7m beam, azure
-1 Cross axle 8m, black
-10 Beam 3 m.w/4 snaps, grey
-113 Connector peg w/friction, black
-9 Technic 9m beam, black
-8 Technic11m beam, magenta
-6 Technic 13m beam, azure
-10 Technic15m beam, black
-6 Biscuit 1x3x3, magenta
-5 Connector peg/cross axle
-30 Connector peg w/friction 3 m, blue
-5 Technic ang. Beam 3x5 90 deg., azure
-2 Technic angular beam 2x4 90 degrees, yellow
-2 T-beam 3x3, yellow
-1 Technic double angular beam 3x7 45 degrees, black
-2 Technic angular beam 4x4, black
-3 T-beam 3x3, black
-2 2m fric. Snap w/cross hole, black
-1 Cross axle 2m w/groove, red
-3 Flat tile 1x1, round, no. 62, yellow
-1 Flat tile 1x1, round, no. 62, grey
-2 Wire clip w/cross hole, yellow
-1 Wire clip w/cross hole, azure
-4 Angle element,0 degrees, grey
-2 Flex hose19m w/3. 18 stick, grey
+### lego parts
+- 2 Large Motor
+- 2 Medium Motor
+- 1 Distance Sensor
+- 1 Color Sensor
+- 2 Wheel ø56
+- 10 Cross axle 3m
+- 3 Cross axle 7m
+- 3 Brick 2x4 w/cross hole, green
+- 3 Brick 2x4 w/cross hole, red
+- 2 Ball cup
+- 2 white Ball
+- 2 Panel 11x19 
+- 2 Technic frame 11x15, azure
+- 2 Technic frame 7x11, magenta
+- 1 Large Hub
+- 8 Technic 3m beam, yellow
+- 12 Technic 5m beam, magenta
+- 12 Technic7m beam, azure
+- 1 Cross axle 8m, black
+- 10 Beam 3 m.w/4 snaps, grey
+- 113 Connector peg w/friction, black
+- 9 Technic 9m beam, black
+- 8 Technic11m beam, magenta
+- 6 Technic 13m beam, azure
+- 10 Technic15m beam, black
+- 6 Biscuit 1x3x3, magenta
+- 5 Connector peg/cross axle
+- 30 Connector peg w/friction 3 m, blue
+- 5 Technic ang. Beam 3x5 90 deg., azure
+- 2 Technic angular beam 2x4 90 degrees, yellow
+- 2 T-beam 3x3, yellow
+- 1 Technic double angular beam 3x7 45 degrees, black
+- 2 Technic angular beam 4x4, black
+- 3 T-beam 3x3, black
+- 2 2m fric. Snap w/cross hole, black
+- 1 Cross axle 2m w/groove, red
+- 3 Flat tile 1x1, round, no. 62, yellow
+- 1 Flat tile 1x1, round, no. 62, grey
+- 2 Wire clip w/cross hole, yellow
+- 1 Wire clip w/cross hole, azure
+- 4 Angle element,0 degrees, grey
+- 2 Flex hose19m w/3. 18 stick, grey
 
 ## Navigating through the room
 At the beginning of our project, we needed a base with enough space for the computer, the drive section, the collection arm, and especially the object container. Therefore, we build a base using the bricks in the picture below.
