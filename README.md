@@ -75,6 +75,15 @@ Now we can identify the objetcts, but not yet collect them. So we need to build 
 
 Jonas: Hardware arm
 
+
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/9016030f-d6f7-4ebe-9eb4-e7affea1e3ac" height=200 />
+
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/af3a7dcd-2347-4c94-a41b-3b119b4c105a" height=200 />
+
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/5d2b069b-b9fb-4901-ac95-91c2e7620a23" height=200 />
+
+
+
 ## Code for collecting objects
 In this section, we first describe the code solely responsible for the arm movement. Later, sections will be added to this code for the actual collection and sorting. For the arm movement, there are two code segments to consider: one being our "base block," serving as the foundation for the execution of various code blocks, and another being a custom block.
 
