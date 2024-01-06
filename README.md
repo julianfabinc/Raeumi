@@ -262,7 +262,7 @@ Genutzte Plattform:
   LEGO® Education SPIKE™:
 - https://spike.legoeducation.com
   
-Genutzte Bausets:
+Genutzte Bausets:                                                                                                                                        
   LEGO® Education SPIKE™ Prime-Set:
 - https://www.lego.com/de-de/product/lego-education-spike-prime-set-45678                                                                                          
   LEGO® Education SPIKE™ Prime-Erweiterungsset:
