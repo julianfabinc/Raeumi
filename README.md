@@ -256,10 +256,22 @@ In summary, Räumi is a versatile robot that can autonomously explore environmen
 
 - Complex Construction: The mechanical linkage system and the overall construction may be challenging for some users, affecting ease of assembly and maintenance.
 
+## Sources
+
+Genutzte Plattform:
+  LEGO® Education SPIKE™:
+- https://spike.legoeducation.com
+  
+Genutzte Bausets:
+  LEGO® Education SPIKE™ Prime-Set:
+- https://www.lego.com/de-de/product/lego-education-spike-prime-set-45678
+  LEGO® Education SPIKE™ Prime-Erweiterungsset:
+- https://www.lego.com/de-de/product/lego-education-spike-prime-expansion-set-45681 
+
 
 ## (Delete this in the end) General tasks:
 Julian: make and cut Videos and Photos
 
 Sara: check grammar and spelling
 
-Jonas: manage sources
+
