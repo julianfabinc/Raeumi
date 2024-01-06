@@ -119,16 +119,18 @@ Furthermore, if they do not, the robot will continue driving ahead and push the 
 
 Now, we can identify the objects but have not yet collected them. So, we need to build an arm that works similarly to a fork. Hier Jonas schreiben (Ich hab für die Teile und so Screenshots von den Videos gemacht)
 
-Jonas: Hardware arm
+### Hardware Arm
+To construct a robot arm with only one available computer port, we have developed a simple control method utilizing only one motor. We opted to control the arm solely through the rotation of the motor, without designing an additional gearbox. The basic idea is to build an arm with two segments connected by a hinge joint. The first segment is directly linked to the motor, while the second serves as a fork for object manipulation.
 
+The hinge joint allows for two stable arm positions: a neutral position with the forked segment folded backward and an extended position with the fork pointing forward. These positions are achieved through the motor's rotation and the resulting centrifugal forces. To enable this functionality, the first arm segment should be sufficiently long, providing enough room for a movement that unfolds the second segment. Hence, the motor is elevated and positioned on the robot's platform.
+
+Due to the swift arm movements, associated centrifugal forces, and the relatively substantial lever forces when lifting objects, a stable construction is crucial. To maintain precision during rapid movements, two additional measures have been implemented. The first measure limits the range of motion of the hinge joint to prevent overextension of the second segment, allowing for object lifting. The second measure involves a support element that aids the arm in the extended state, consistently maintaining it in the optimal position for object collection.
+
+In summary, the robot arm comprises two segments connected by a hinge joint. The first segment is directly linked to the motor, while the second functions as a fork for object manipulation. The arm's movement is controlled by the motor's rotation, with centrifugal forces achieving the two stable positions. A stable construction, limited range of motion, and a support element ensure the precision and efficiency of the robot arm. The accompanying images illustrate the necessary components for motor positioning and arm assembly.
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/9016030f-d6f7-4ebe-9eb4-e7affea1e3ac" height=200 />
-
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/af3a7dcd-2347-4c94-a41b-3b119b4c105a" height=200 />
-
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/5d2b069b-b9fb-4901-ac95-91c2e7620a23" height=200 />
-
-
 
 ## Code for collecting objects
 In this section, we first describe the code solely responsible for the arm movement. Later, sections will be added to this code for the collection and sorting. For the arm movement, there are two code segments to consider: one being our "base block," serving as the foundation for the execution of various code blocks, and another being a custom block.
