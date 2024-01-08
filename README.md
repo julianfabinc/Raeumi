@@ -5,8 +5,8 @@ In dieser Dokumentation wird in einzelschritten festgehalten, wie die Teilaufgab
 Räumi is a Lego Spike Robot that can navigate through space without colliding with walls and other obstacles. It can also collect items of different colors, sort them, and put them in the fitting container. This documentation shows you which tasks the robot has to complete and how they are implemented in software- and hardware.
 
 ### General information:
-
 Räumi is  designed for navigation, obstacle avoidance, and object collection and sorting. It's stable base, equipped with a drive section featuring two wheels and motors, enables controlled movement. The robot's software includes code for forward movement, collision avoidance using an ultrasound sensor, and precise object collection with a fork-like arm. The color sensor aids in sorting objects, and a unique mechanical linkage, "Schubkurbel," moves the object container for efficient sorting. Räumi showcases a seamless integration of hardware and software, making it a versatile and creative robotic solution.
+
 
 ## Used LEGO parts
 - 2 Large Motor
@@ -51,6 +51,7 @@ Räumi is  designed for navigation, obstacle avoidance, and object collection an
 - 1 Wire clip w/cross hole, azure
 - 4 Angle element,0 degrees, grey
 - 2 Flex hose19m w/3. 18 stick, grey
+- 
 
 ## Navigating through the room
 At the beginning of our project, we needed a base with enough space for the computer, the drive section, the collection arm, and especially the object container. Therefore, we build a base using the bricks in the picture below.
@@ -71,7 +72,7 @@ Then, the wheel gets mounted to the base. Do not forget to connect the wheels to
 
 Now, the Hardware allows the robot to drive. However, first, we need to implement the software
 
-#### Forward Movement Code Description
+### Forward Movement Code Description
 To move the robot forward, we need two code blocks. The first block ("base block") begins with an "Event" block and is the foundation for our subsequent code. This "Event" block determines what happens when the program starts. For forward movement, we initially define the motors responsible for propulsion (in our case, the motors connected to ports A and B), along with a loop that executes the custom "forward" block.
 
 Now, let us create a custom code block named "Forward." The use of custom code blocks helps maintain code clarity. Within this block, we only need two "Movement" blocks. In the Lego Spike environment, individual motor control is not necessary for forward movement. The "Movement" blocks automatically control both motors.
@@ -83,7 +84,6 @@ First, we set the speed to 35% of the maximum speed. Subsequently, the second bl
 This code causes the robot to keep driving straight ahead. In the following sections, this code is supplemented further and further so that the robot can navigate through the room.
 
 
-
 ## Avoid collisions with obstacles
 Now, the robot can drive straight forward or in curves and even turn while staying in the same position. However, it does not know yet when to do what. Our goal is that the robot usually drives straight ahead; if it comes across obstacles, it should stop and turn in another direction. In order to achieve that, we need an ultrasound sensor. It would be best if you had the following bricks:
 
@@ -93,7 +93,7 @@ Now, the robot can drive straight forward or in curves and even turn while stayi
 The challenge here is to detect the obstacles to prevent collision. Moreover, the goal is not to stop if it comes across one of the objects but to collect. Therefore, the sensor is placed in sufficient height. Additionally, the sensor should not interfere with the collection arm, so it is not placed at the center but more on the robot's left side. 
 Now, we only have to implement when to stop and what to do if we encounter an obstacle.
 
-## Code description for collision avoidance
+### Code description for collision avoidance
 For collision avoidance, we first create another custom block named "reverse and turn." In the first line, we set the speed for the robot to move backward. The following line defines how far the robot should move backward. We have chosen a distance of 7 cm to ensure that the robot avoids colliding with an obstacle during the turn. The third line specifies how the robot should turn. We have decided that the robot should always turn to the right, selecting a random angle between 360 and 560 degrees. We opted for a random angle to allow the robot to cover as much area of the room as quickly as possible.
 
 <img  src = "https://github.com/julianfabinc/Raeumi/assets/153218995/fd33fef6-f4a4-4107-b820-000748e18ebd" height = 200/>
@@ -119,7 +119,7 @@ Furthermore, if they do not, the robot will continue driving ahead and push the 
 
 Now, we can identify the objects but have not yet collected them. So, we need to build an arm that works similarly to a fork. Hier Jonas schreiben (Ich hab für die Teile und so Screenshots von den Videos gemacht)
 
-### Hardware Arm
+#### Hardware Arm
 To construct a robot arm with only one available computer port, we have developed a simple control method utilizing only one motor. We opted to control the arm solely through the rotation of the motor, without designing an additional gearbox. The basic idea is to build an arm with two segments connected by a hinge joint. The first segment is directly linked to the motor, while the second serves as a fork for object manipulation.
 
 The hinge joint allows for two stable arm positions: a neutral position with the forked segment folded backward and an extended position with the fork pointing forward. These positions are achieved through the motor's rotation and the resulting centrifugal forces. To enable this functionality, the first arm segment should be sufficiently long, providing enough room for a movement that unfolds the second segment. Hence, the motor is elevated and positioned on the robot's platform.
@@ -132,17 +132,16 @@ In summary, the robot arm comprises two segments connected by a hinge joint. The
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/af3a7dcd-2347-4c94-a41b-3b119b4c105a" height=200 />
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/5d2b069b-b9fb-4901-ac95-91c2e7620a23" height=200 />
 
-## Code for collecting objects
+### Code for collecting objects
 In this section, we first describe the code solely responsible for the arm movement. Later, sections will be added to this code for the collection and sorting. For the arm movement, there are two code segments to consider: one being our "base block," serving as the foundation for the execution of various code blocks, and another being a custom block.
 
-### Neutral starting position of the arm
+#### Neutral starting position of the arm
 Firstly, we ensure that the arm is in a neutral starting position after the program starts, where it remains stable during the robot's movement through the room and does not impede the robot. For this purpose, a manual angle is set for the arm, where the link of the arm connected to the motor slightly points upwards, and the second link is folded backward. In our case, the angle is 205 degrees but may vary and should be individually determined. To achieve this angle at the program's start, the speed of the motor connected to the arm (in our case, this is port E) is set first. The following line specifies that the desired angle should be reached in the shortest path. "Motor blocks" are used for these two lines.
 The "basic block" with the changes mentioned is shown below.
 
-
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/1a0b62f1-ce55-4fb1-85df-d62e6c75ef57" height = 200/>
 
-### Collecting objects
+#### Collecting objects
 This section will initially explain the code solely for collecting a green object. Changes will be made to our "base block," and another custom block, "color green," will be created.  
 
 A new if-condition is introduced into the infinite loop of our "base block," which is based on the output of the color sensor (in our case, port C). In this scenario, the condition specifies what should be executed when the color sensor detects the color green. The custom block "color green" is designed to handle this situation.
@@ -178,7 +177,6 @@ The following image displays the entire code required for the robot to navigate 
 
 Of course, we still need objects to be picked up. Since we want to sort by color, we need similar or identical objects of different colors. Additionally, they should allow the arm to pick them up. Since the objects are very light and do not have much resistance, it seems the easiest way to build something on them, allowing the arm to thread in. Moreover, since our robot cannot turn the objects around to fit in a particular position, threading in from any direction should be possible. So, we constructed the objects as the following:
 
-
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/74a605e0-2750-4dd9-8b61-1b2e8dd897d6" height=200 />
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/b05f3f48-4e2f-4401-8455-89294e0d1349" height=200 />
 
@@ -202,7 +200,7 @@ The big container is only mounted on the narrow linkage, requiring further stabi
 
 The robot has all the hardware it needs to fulfill its task. However, there is still some work to do on the software
 
-## Code for sorting objects
+### Code for sorting objects
 Only a few additional modifications are needed in the code to ensure the robot can correctly sort objects into the collection container based on their colors. Firstly, we need a neutral starting position for the collection container after the program initiates, similar to what we did for the arm. For this, we manually identify the motor angle where the collection container is centered on the robot (in our case, 10 degrees). After determining this angle, we add two lines of "Motor Blocks" in the "Base Block" to control the motor responsible for the platform's movement (in our case, Port F). In the first line, we set the speed to 15%; in the second line, we define how the target angle should be reached. The "Base Block" modifications are shown in the image below.
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/136cadcc-9f3a-4650-a3f0-c506b8c0128e" height = 200/>
@@ -218,6 +216,8 @@ After these adjustments, the entire code is ready for the robot to execute the p
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/2699e95a-8cbd-458c-adb9-a011db8341bd" height = 200/>
 
 Farbsensor, Schubkurbel die den Container bewegt
+
+
 ## Results
 As a result of Räumi's advanced features, it is capable of completing these tasks:
 - Autonomous Navigation: The robot can autonomously navigate through spaces, making use of it's two-wheeled drive system that allows it to move forward, backward, and turn as needed.
@@ -232,10 +232,10 @@ As a result of Räumi's advanced features, it is capable of completing these tas
 
 In summary, Räumi is a versatile robot that can autonomously explore environments, collect specific objects, and organize them based on color, showcasing a sophisticated interplay of hardware and software capabilities.
 
+
 ## Strengths and weaknesses
 
 ### Strengths:
-
 - Versatility: Räumi demonstrates versatility by autonomously navigating spaces, collecting specific objects, and sorting them based on color.
 
 - Obstacle Avoidance: The inclusion of an ultrasound sensor enables effective obstacle detection, allowing the robot to navigate without collisions.
@@ -249,12 +249,12 @@ In summary, Räumi is a versatile robot that can autonomously explore environmen
 - Creative Design: The design incorporates creative solutions, such as the funnel for consistent object positioning and the mechanical linkage for container movement.
 
 ### Weaknesses:
-
 - Limited Object Variety: The robot's design limits its ability to collect only specific objects that can be picked up by the fork-like arm, restricting its versatility in handling a wide range of objects.
 
 - Limited Sorting Capacity: The robot's sorting capability is limited to the number of compartments in the container and the colors it can detect, potentially restricting its sorting capacity.
 
 - Complex Construction: The mechanical linkage system and the overall construction may be challenging for some users, affecting ease of assembly and maintenance.
+
 
 ## Sources
 
