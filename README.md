@@ -104,7 +104,7 @@ Next, using an if statement, we will integrate the "reverse and turn" block into
 
 The following image displays our complete Lego Spike code for room navigation and collision avoidance.
 
-<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/57689ea3-be88-4d1f-8960-9f7fd1332b48" height = 200/>
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/57689ea3-be88-4d1f-8960-9f7fd1332b48" height = 350/>
 
 
 ## 4 Collect objects
@@ -138,41 +138,41 @@ In this section, we first describe the code solely responsible for the arm movem
 Firstly, we ensure that the arm is in a neutral starting position after the program starts, where it remains stable during the robot's movement through the room and does not impede the robot. For this purpose, a manual angle is set for the arm, where the link of the arm connected to the motor slightly points upwards, and the second link is folded backward. In our case, the angle is 205 degrees but may vary and should be individually determined. To achieve this angle at the program's start, the speed of the motor connected to the arm (in our case, this is port E) is set first. The following line specifies that the desired angle should be reached in the shortest path. "Motor blocks" are used for these two lines.
 The "basic block" with the changes mentioned is shown below.
 
-<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/1a0b62f1-ce55-4fb1-85df-d62e6c75ef57" height = 200/>
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/1a0b62f1-ce55-4fb1-85df-d62e6c75ef57" height = 350/>
 
 #### 4.1.2 Collecting objects
 This section will initially explain the code solely for collecting a green object. Changes will be made to our "base block," and another custom block, "color green," will be created.  
 
 A new if-condition is introduced into the infinite loop of our "base block," which is based on the output of the color sensor (in our case, port C). In this scenario, the condition specifies what should be executed when the color sensor detects the color green. The custom block "color green" is designed to handle this situation.
 
-<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/05ed4040-8df3-47b9-86a6-a7a6f277b5b3" height = 200/>
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/05ed4040-8df3-47b9-86a6-a7a6f277b5b3" height = 350/>
 
 Due to the positioning and functionality of the color sensor, it can only detect the colors of objects immediately in front of the sensor. As previously described, the funnel ensures that objects are consistently positioned directly in front of the sensor during the robot's movement through the room. When the sensor detects green, the robot must move backward to position the arm accordingly. For this purpose, we have utilized two "Movement Blocks," defining the movement's speed, direction, and distance. We have chosen a speed of 15% and a backward movement of 15cm to create sufficient space for extending the arm.  
 
-<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/e7ed6317-5e0b-4082-ab9b-8a4bbf06796f" heigth = 200/>
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/e7ed6317-5e0b-4082-ab9b-8a4bbf06796f" heigth = 350/>
 
 Due to the construction of the arm, it cannot be slowly moved into position, as the link with the fork would not unfold properly. To overcome this issue, we leverage gravity and centrifugal forces.
 Before delving into the code, two angles must be manually set. Therefore, the motor is manually rotated to the respective position, and the angle is noted. The first angle required is the angle at which the motor is positioned when the arm is unfolded and at the optimal height for collecting objects (in our case, it is 129 degrees). The second angle should be just before this position (in our case, it is 144 degrees), an explanation for which will follow. These angles can vary individually and should always be adjusted manually.
 
 After identifying the angles, four lines of "Motor Blocks" are needed for the code. In the first line, we set the speed of the motor controlling the arm (in our case, port E) to 100%, so centrifugal force causes the second link of the arm to unfold forward. In the second line, we specify how the movement should be executed, using the second identified angle (144 degrees) and the command to approach this angle in the shortest path. Subsequently, the arm should be unfolded, and it can be brought to the final position with reduced speed. For this, the speed is reduced to 30%, and the angle of the end position (129 degrees) is approached in the shortest path.
 
-<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/c41f195b-d906-48a1-84d2-0e904b3f5b4c" height = 200/>
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/c41f195b-d906-48a1-84d2-0e904b3f5b4c" height = 350/>
 
 Once the end position of the arm is reached, the robot needs to move forward again to collect the object. For this, two lines of "Movement Blocks" are used. The first line sets the speed, and the second line defines the direction and distance of the movement. We have chosen a speed of 15% to minimize the risk of tipping the object. The forward movement distance is set to 8cm, the optimal distance for collecting the object.
 
-<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/f711fdd4-d269-4a30-9db7-b82d9d923d2b" height = 200/>
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/f711fdd4-d269-4a30-9db7-b82d9d923d2b" height = 350/>
 
 Now that the object has been collected with the arm, it must be placed in the collection container. For this, two lines of "Motor Blocks" are needed. The first line sets the speed, and the second line sets the target angle. We have chosen a speed of 15%, which is slow enough to prevent the object from being thrown off the fork but fast enough to allow it to detach from the arm upon reaching the target angle and enter the collection container. The target angle is again set manually, but the collection container must be constructed first.
 
-<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/3398ecf8-d4a1-48ad-b660-38c5c0a83349" height = 200/>
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/3398ecf8-d4a1-48ad-b660-38c5c0a83349" height = 350/>
 
 After placing the object, the arm must be returned to the neutral starting position. We use the previously set target angle of 205 degrees and the command to bring the arm to this position in the shortest path.
 
-<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/6a171e8b-e79b-4404-ab06-d4a0d41250d5" height = 200/>
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/6a171e8b-e79b-4404-ab06-d4a0d41250d5" height = 350/>
 
 The following image displays the entire code required for the robot to navigate the room and recognize and collect objects of the color green.
 
-<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/b55e1926-3aaa-4b8d-980a-bfa6016d62fb" height = 200/>
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/b55e1926-3aaa-4b8d-980a-bfa6016d62fb" height = 350/>
 
 Of course, we still need objects to be picked up. Since we want to sort by color, we need similar or identical objects of different colors. Additionally, they should allow the arm to pick them up. Since the objects are very light and do not have much resistance, it seems the easiest way to build something on them, allowing the arm to thread in. Moreover, since our robot cannot turn the objects around to fit in a particular position, threading in from any direction should be possible. So, we constructed the objects as the following:
 
@@ -202,19 +202,17 @@ The robot has all the hardware it needs to fulfill its task. However, there is s
 ### 5.1 Code for sorting objects
 Only a few additional modifications are needed in the code to ensure the robot can correctly sort objects into the collection container based on their colors. Firstly, we need a neutral starting position for the collection container after the program initiates, similar to what we did for the arm. For this, we manually identify the motor angle where the collection container is centered on the robot (in our case, 10 degrees). After determining this angle, we add two lines of "Motor Blocks" in the "Base Block" to control the motor responsible for the platform's movement (in our case, Port F). In the first line, we set the speed to 15%; in the second line, we define how the target angle should be reached. The "Base Block" modifications are shown in the image below.
 
-<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/136cadcc-9f3a-4650-a3f0-c506b8c0128e" height = 200/>
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/136cadcc-9f3a-4650-a3f0-c506b8c0128e" height = 350/>
 
 Next, we must specify how the collection container should be controlled upon color detection. This integration is done in the custom block "color green." Beforehand, we manually set the angle on the collection container motor so that the arm is directly above the desired compartment of the container (in our case, 271 degrees). This angle becomes the target angle of the motor when the color green is detected. In this step, we also set the target angle of the arm, which was left open in the previous section. It should be chosen so that the arm is low enough to place the object in the collection container but high enough to prevent it from being lifted again (in our case, 129 degrees). This angle must be individually determined. We integrate the rise of the collection container after capturing the object and before moving the arm upward. For this, we again use two lines of "Motor Blocks" that define the speed and the method of reaching the target angle. We chose a speed of 15% and the shortest path to the target angle. After placing the object in the container, we move the container back to the neutral starting position. We use the same lines we added to our "Base Block" and include them at the end of our custom block. The custom block "color green" modifications are depicted in the image below.
 
-<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/7dd48094-7ba2-4ea2-8add-0037ceb9221f" height = 200(>
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/7dd48094-7ba2-4ea2-8add-0037ceb9221f" height = 350(>
 
 To sort two colors, we add another if-condition in the Base Block, specifying what to do when the color sensor detects another color (in our case, red). Next, we need another custom block, "color red." We can simplify this by copying the "color green" block. The crucial aspect is to manually determine and supplement the corresponding angles for the sorting to function.
 
 After these adjustments, the entire code is ready for the robot to execute the planned tasks.
 
-<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/2699e95a-8cbd-458c-adb9-a011db8341bd" height = 200/>
-
-Farbsensor, Schubkurbel die den Container bewegt
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/2699e95a-8cbd-458c-adb9-a011db8341bd" height = 350/>
 
 
 ## 6 Results
