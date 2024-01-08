@@ -4,11 +4,11 @@ In dieser Dokumentation wird in einzelschritten festgehalten, wie die Teilaufgab
 
 Räumi is a Lego Spike Robot that can navigate through space without colliding with walls and other obstacles. It can also collect items of different colors, sort them, and put them in the fitting container. This documentation shows you which tasks the robot has to complete and how they are implemented in software- and hardware.
 
-General information:
+### General information:
 
 Räumi is  designed for navigation, obstacle avoidance, and object collection and sorting. It's stable base, equipped with a drive section featuring two wheels and motors, enables controlled movement. The robot's software includes code for forward movement, collision avoidance using an ultrasound sensor, and precise object collection with a fork-like arm. The color sensor aids in sorting objects, and a unique mechanical linkage, "Schubkurbel," moves the object container for efficient sorting. Räumi showcases a seamless integration of hardware and software, making it a versatile and creative robotic solution.
 
-### lego parts
+## Used LEGO parts
 - 2 Large Motor
 - 2 Medium Motor
 - 1 Distance Sensor
@@ -71,7 +71,7 @@ Then, the wheel gets mounted to the base. Do not forget to connect the wheels to
 
 Now, the Hardware allows the robot to drive. However, first, we need to implement the software
 
-## Forward Movement Code Description
+#### Forward Movement Code Description
 To move the robot forward, we need two code blocks. The first block ("base block") begins with an "Event" block and is the foundation for our subsequent code. This "Event" block determines what happens when the program starts. For forward movement, we initially define the motors responsible for propulsion (in our case, the motors connected to ports A and B), along with a loop that executes the custom "forward" block.
 
 Now, let us create a custom code block named "Forward." The use of custom code blocks helps maintain code clarity. Within this block, we only need two "Movement" blocks. In the Lego Spike environment, individual motor control is not necessary for forward movement. The "Movement" blocks automatically control both motors.
