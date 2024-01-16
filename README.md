@@ -1,8 +1,10 @@
 # Räumi
-Räumi ist ein Lego Spike Roboter, der durch den Raum navigiert ohne gegen Wänder oder andere Hindernisse zu Fahren und dabei Objekte verschiedener Farbe aufsammeln und sortieren kann.
-In dieser Dokumentation wird in einzelschritten festgehalten, wie die Teilaufgaben durch Hard- und Software erreicht werden
 
-Räumi is a Lego Spike Robot that can navigate through space without colliding with walls and other obstacles. It can also collect items of different colors, sort them, and put them in the fitting container. This documentation shows you which tasks the robot has to complete and how they are implemented in software- and hardware.
+
+Räumi is a Lego Spike Robot that can navigate through space without colliding with walls and other obstacles. It can also collect items of different colors, sort them, and put them in the fitting container. This documentation shows you which tasks the robot has to complete and how they are implemented in software- and hardware. 
+Additionally, we provide a video which shows how we built the hardware of Räumi. You can find the video on Youtube with the link below.
+
+https://youtu.be/BqY5DrDXUPw
 
 ### General information:
 Räumi is  designed for navigation, obstacle avoidance, and object collection and sorting. It's stable base, equipped with a drive section featuring two wheels and motors, enables controlled movement. The robot's software includes code for forward movement, collision avoidance using an ultrasound sensor, and precise object collection with a fork-like arm. The color sensor aids in sorting objects, and a unique mechanical linkage, "Schubkurbel," moves the object container for efficient sorting. Räumi showcases a seamless integration of hardware and software, making it a versatile and creative robotic solution.
