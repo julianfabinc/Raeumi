@@ -260,11 +260,11 @@ The following section takes a closer look at the strengths and weaknesses of the
 ## 9 Sources
 
 Platform used: 
-  LEGO® Education SPIKE™:
+    LEGO® Education SPIKE™:
   - https://spike.legoeducation.com
   
 Building sets used:                                                                                                                                        
-  LEGO® Education SPIKE™ Prime-Set:
+    LEGO® Education SPIKE™ Prime-Set:
   - https://www.lego.com/de-de/product/lego-education-spike-prime-set-45678
                                                                                        
   LEGO® Education SPIKE™ Prime-expansion set:
