@@ -1,13 +1,13 @@
 # Räumi
 
 
-Räumi is a Lego Spike Robot that can navigate through space without colliding with walls and other obstacles. It can also collect items of different colors, sort them, and put them in the fitting container. This documentation shows you which tasks the robot has to complete and how they are implemented in software- and hardware. 
-Additionally, we provide a video which shows how we built the hardware of Räumi. You can find the video on Youtube with the link below.
+Räumi is a Lego Spike Robot that can navigate through space without colliding with walls and other obstacles. Furthermore it collects items of different colors, sorts them, and puts them into the fitting container. This documentation shows you which tasks the robot has to complete and how they are implemented in software- and hardware. 
+Additionally, we provide a video which shows how we built the hardware of Räumi. You can find the video on Youtube by clicking on the link below.
 
 https://youtu.be/BqY5DrDXUPw
 
 ### General information:
-Räumi is  designed for navigation, obstacle avoidance, and object collection and sorting. It's stable base, equipped with a drive section featuring two wheels and motors, enables controlled movement. The robot's software includes code for forward movement, collision avoidance using an ultrasound sensor, and precise object collection with a fork-like arm. The color sensor aids in sorting objects, and a unique mechanical linkage, "Schubkurbel," moves the object container for efficient sorting. Räumi showcases a seamless integration of hardware and software, making it a versatile and creative robotic solution.
+Räumi is  designed for navigation, obstacle avoidance, and object collection and sorting. Its stable base, equipped with a drive section featuring two wheels and motors, enables controlled movement. The robot's software includes code for forward movement, collision avoidance using an ultrasound sensor, and precise object collection with a fork-like arm. The color sensor helps sorting objects, and a unique mechanical linkage, "Schubkurbel," moves the object container for efficient sorting. Räumi showcases a seamless integration of hardware and software which make it a versatile and creative robotic solution.
 
 
 ## 1 Used LEGO parts
@@ -21,7 +21,7 @@ Räumi is  designed for navigation, obstacle avoidance, and object collection an
 - 3 Brick 2x4 w/cross hole, green
 - 3 Brick 2x4 w/cross hole, red
 - 2 Ball cup
-- 2 white Ball
+- 2 White Ball
 - 2 Panel 11x19 
 - 2 Technic frame 11x15, azure
 - 2 Technic frame 7x11, magenta
@@ -53,26 +53,26 @@ Räumi is  designed for navigation, obstacle avoidance, and object collection an
 - 1 Wire clip w/cross hole, azure
 - 4 Angle element,0 degrees, grey
 - 2 Flex hose19m w/3. 18 stick, grey
-- 
+  
 
 ## 2 Navigating through the room
-At the beginning of our project, we needed a base with enough space for the computer, the drive section, the collection arm, and especially the object container. Therefore, we build a base using the bricks in the picture below.
+At the beginning of our project, we needed a base with enough space for the computer, the drive section, the collection arm, and especially the object container. Therefore, we built a base using the bricks in the picture below.
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/06e295b1-b751-4774-b193-b87c21b7fc46" height=200 />
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/b15ababf-390f-424e-9844-68a580e95cd1" height=200 />
 
 This construction provides enough stability and allows the robot to rotate on the floor, an essential property for avoiding contact with obstacles.  
 
-However, we need a drive section for the robot in order to be able to move through space. Here, we decided to go with two wheels, each with its motor. We need two motors because only then can the robot turn while staying in the same position. For stability reasons, the wheels were placed at the back of the robot. The back of the robot is the side where we placed the computer. This design is inspired, for example, by conventional lawn mower robots. In the left picture, you can see the bricks required for one wheel. The bricks for the other wheel are identical, but you have to remember that it must be built according to mirror symmetry. The result is shown in the right picture. . 
+However, we needed a drive section for the robot in order to be able to move through space. Here, we decided to go with two wheels, each with its own motor. We needed two motors because only then can the robot turn while staying in the same position. For stability reasons, the wheels were placed at the back of the robot. The back of the robot is the side where we placed the computer. This design is inspired, for example, by conventional lawn mower robots. In the left picture, you can see the bricks required for one wheel. The bricks for the other wheel are identical, but you have to keep in mind that it must be built according to mirror symmetry. The result is shown in the right picture. 
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/a8123cec-c84d-4a9b-bf63-f1937dd7c328" height=200 />
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/f7331b5e-6736-4af9-9220-a30e0f809f92" height=200 />
 
-Then, the wheel gets mounted to the base. Do not forget to connect the wheels to the computer. We connected the left wheel with Exit A and the right with Exit B. If you do so, you should get the following result:
+Then, the wheel got mounted to the base. It's important not to forget to connect the wheels to the computer. We connected the left wheel with Exit A and the right wheel with Exit B. If you do so, you should get the following result:
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/39a5114c-422c-4ef7-9209-9083075f9947" height=200 />
 
-Now, the Hardware allows the robot to drive. However, first, we need to implement the software
+Now, the hardware allows the robot to drive. However, we need to implement the software first.
 
 ### 2.1 Forward Movement Code Description
 To move the robot forward, we need two code blocks. The first block ("base block") begins with an "Event" block and is the foundation for our subsequent code. This "Event" block determines what happens when the program starts. For forward movement, we initially define the motors responsible for propulsion (in our case, the motors connected to ports A and B), along with a loop that executes the custom "forward" block.
@@ -87,12 +87,12 @@ This code causes the robot to keep driving straight ahead. In the following sect
 
 
 ## 3 Avoid collisions with obstacles
-Now, the robot can drive straight forward or in curves and even turn while staying in the same position. However, it does not know yet when to do what. Our goal is that the robot usually drives straight ahead; if it comes across obstacles, it should stop and turn in another direction. In order to achieve that, we need an ultrasound sensor. It would be best if you had the following bricks:
+Now, the robot can drive straight forward or in curves and even turn while staying in the same position. However, it does not know yet when to do what. Our goal was that the robot usually drives straight ahead; if it comes across obstacles, it should stop and turn in another direction. In order to achieve that we required an ultrasound sensor. It would be best if you had the following bricks:
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/60d8a8e6-0501-45d7-852f-f1fc43565d9b" height=200 />
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/bd8cd66d-e2d4-48f7-8513-11cdbf8bbc60" height=200 />
 
-The challenge here is to detect the obstacles to prevent collision. Moreover, the goal is not to stop if it comes across one of the objects but to collect. Therefore, the sensor is placed in sufficient height. Additionally, the sensor should not interfere with the collection arm, so it is not placed at the center but more on the robot's left side. 
+The challenge here was to detect the obstacles to prevent collision. Moreover, the goal was not to stop if it comes across one of the objects but to collect it. Therefore, the sensor was placed in sufficient height. Additionally, the sensor should not interfere with the collection arm, hence it was not placed at the center but more on the robot's left side. 
 Now, we only have to implement when to stop and what to do if we encounter an obstacle.
 
 ### 3.1 Code description for collision avoidance
@@ -109,11 +109,11 @@ The following image displays our complete Lego Spike code for room navigation an
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/57689ea3-be88-4d1f-8960-9f7fd1332b48" height = 350/>
 
 
-## 4 Collect objects
-First of all, we have to know what kind of objects we want to collect. At first, we wanted to have the opportunity to collect any object form. However, our collection arm would have to be very complex and need at least two or more ports on the computer to fulfill this task. The problem is that we only have three ports left, and we know we need at least one for the object container and one for the color sensor. This means we must construct a collection device with only one motor, which makes it very hard to build something like a pair of pliers. So, we decided to use a fork to pick up objects. Nevertheless, this also means that we only can collect particular objects. 
+## 4 Collecting objects
+First of all, we had to know what kind of objects we want to collect. At first, we wanted to have the opportunity to collect any object form. However, our collection arm would have to be very complex and need at least two or more ports on the computer to fulfill this task. The problem is that we only have three ports left, and we know we need at least one for the object container and one for the color sensor. This means we must construct a collection device with only one motor which makes it very hard to build something like a pair of pliers. So, we decided to use a fork to pick up objects. Nevertheless, this also means that we only can collect particular objects. 
 
-So, first of all, let us look at how we want to identify the objects. Since we want to sort the objects by color, we need the color sensor placed at the center front. As objects usually lie on the ground, placing the sensor as close as possible to the ground makes sense. This works efficiently with our base because we must mount it at the desired position. However, with the current design, you need good luck that the objects come right in front of the sensor.
-Furthermore, if they do not, the robot will continue driving ahead and push the object with it without noticing it. Consequently, it is desirable to identify the object at any position at the front of the robot. Since it is impossible to enlarge the sensor, we build a funnel in front of the color sensor, which places the objects right in front of it. So overall, you need the following bricks for the color sensor and the funnel:
+Next, let us look at how we want to identify the objects. Since we want to sort the objects according to their color, we need to place the color sensor at the center front. As objects usually lie on the ground, it makes sense to place the sensor as close as possible to the ground. This works efficiently on our base because we only have to mount it at the desired position. However, with the current design you need a good amount of luck that the objects come right in front of the sensor.
+Furthermore, if they do not, the robot will continue driving ahead and pushing the object in front of itself without noticing it. Consequently, it is desirable to identify the object in any position at the front of the robot. Since it is impossible to enlarge the sensor, we build a funnel in front of the color sensor which places the objects right in front of it. Overall, you need the following bricks for the color sensor and the funnel:
 
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/661e12bf-41c3-44ed-bfc9-31bccfd3965f" height=200 />
@@ -176,26 +176,27 @@ The following image displays the entire code required for the robot to navigate 
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/b55e1926-3aaa-4b8d-980a-bfa6016d62fb" height = 350/>
 
-Of course, we still need objects to be picked up. Since we want to sort by color, we need similar or identical objects of different colors. Additionally, they should allow the arm to pick them up. Since the objects are very light and do not have much resistance, it seems the easiest way to build something on them, allowing the arm to thread in. Moreover, since our robot cannot turn the objects around to fit in a particular position, threading in from any direction should be possible. So, we constructed the objects as the following:
+### 4.1.3. Objects
+Of course, we still need objects to be picked up. Since we want to sort them according to their color, we need similar or identical objects of different colors. Additionally, they should allow the arm to pick them up. As the objects are very light and do not have much resistance,  the easiest way seems to build something on top of them, allowing the arm to thread in. Moreover, since our robot cannot turn the objects around into a particular position,it should be possible to thread in from any direction. Thus, we constructed the objects as the following:
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/74a605e0-2750-4dd9-8b61-1b2e8dd897d6" height=200 />
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/b05f3f48-4e2f-4401-8455-89294e0d1349" height=200 />
 
 
-## 5 Sort Objects of different colors
-Now that the robot can pick up the objects, it needs to sort them by color. The color sensor detects the color and must be moved to the right container. This can be achieved in two ways: Moving the arm to the right container or moving the container to the position. We decided to move the container to the right position because the collection arm already had a height fitting to pick up the objects. 
+## 5 Sorting Objects of different colors
+Now that the robot can pick up the objects, it needs to sort them by color. The color sensor detects the color and the objects must be moved to the right container. This can be achieved in two ways: Moving the arm to the right container or moving the container to the position. We decided to move the container to the right position because the collection arm already had a height fitting to pick up the objects. 
 
-Since the objects are pretty big, the container must also be big so the objects can fit inside. Additionally, several ways exist to move the container to the required position. One way would be to rotate the container 180°. The other, probably better, is moving it from side to side. This has the advantage that it can be stabilized more efficiently, and it seems more natural. However, to move the container from side to side, we have to translate the circular movement of the motor into a straight movement. Therefore, we build a mechanical linkage called "Schubkurbel," which is the same linkage as in a petrol engine. For this linkage, we need a rail in which one part of the linkage can move from side to side. This is the part that will be connected to the object container. For this, we need the bricks as follows.
+Since the objects were pretty big, the container  also had to be big enough for the objects to fit inside. Additionally, several ways exist to move the container to the required position. One way would be to rotate the container 180°. The other, probably better, is moving it from side to side. This has the advantage that it can be stabilized more efficiently, and it seems more natural. However, in order to move the container from side to side, we had to translate the circular movement of the motor into a straight movement. Therefore, we build a mechanical linkage called "Schubkurbel" which is the same linkage as in a petrol engine. For this linkage, we need a rail in which one part of the linkage can move from side to side. This is the part that will be connected to the object container. For this, we need the bricks as follow:
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/6b1775d1-2492-4cac-98ea-1694c3178144" height=200 />
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/6566fb98-6328-4c64-8d31-785375e90633" height=200 />
 
-On top of this mechanical linkage, we will put the container. As already mentioned, the container consists of two small containers, each having to be big enough to provide space for at least one of the objects. Experimenting with the collection arm taught us that a higher wall at the end of the container helps prevent the object from overshooting the target. On the other side, the lower wall at the front facilitates access to the container. Because the container turned out to be quite significant, we tried constructing it to keep it lightweight. Therefore, we tried to use more of a grid-like structure than actual walls. Furthermore, building the container with many useful bricks already being used on other components was challenging. So do not be surprised that the container initially looks unconventional.
+On top of this mechanical linkage, we will place the container. As already mentioned, the container consists of two small containers, each having to be big enough to provide space for at least one of the objects. Experimenting with the collection arm taught us that a higher wall at the end of the container helps prevent the object from overshooting the target. On the other side, the lower wall at the front facilitates access to the container. Because the container turned out to be quite heavy, we tried constructing it in a way to keep it lightweight. Therefore, we tried to use a grid-like structure instead of actual walls. Furthermore, it was challangeing to build the container because many useful bricks have already been used for other compenents .So the container might look unconventional at first.
 
 <img src="https://github.com/julianfabinc/Raeumi/assets/153210113/7d9038ba-d979-42bc-90d0-a46faaa2b3d7" height="200">
 <img src="https://github.com/julianfabinc/Raeumi/assets/153210113/eacfb576-ac2a-46e6-af83-861052aeeb6a" height="200">
 
-The big container is only mounted on the narrow linkage, requiring further stabilization. With the computer at the perfect height, it offers an excellent opportunity to stabilize the container. We, therefore, built an additional rail on the computer, on which the application you can see in the lower part of the right picture above can slide along. With that, the container is stable enough to move from side to side and catch the objects put in by the collection arm.
+The big container is only mounted on the narrow linkage, requiring further stabilization. With the computer at the perfect height, it offers an excellent opportunity to stabilize the container. We, therefore, built an additional rail on the computer on which the application, you can see in the lower part of the right picture above, can slide along. Like this, the container is stable enough to move from side to side and catch the objects placed in by the collection arm.
 
 <img src="https://github.com/julianfabinc/Raeumi/assets/153210113/a8522f3b-b6c5-42c8-bd85-cb984d99de81" height="200">
 
@@ -219,9 +220,9 @@ After these adjustments, the entire code is ready for the robot to execute the p
 
 ## 6 Results
 As a result of Räumi's advanced features, it is capable of completing these tasks:
-- Autonomous Navigation: The robot can autonomously navigate through spaces, making use of it's two-wheeled drive system that allows it to move forward, backward, and turn as needed.
+- Autonomous Navigation: The robot can autonomously navigate through spaces, making use of its two-wheeled driving system that allows it to move forward, backward, and turn as needed.
 
-- Obstacle Avoidance: Equipped with an ultrasound sensor, Räumi can detect obstacles in its path and adjust it's movements to avoid collisions.
+- Obstacle Avoidance: Equipped with an ultrasound sensor, Räumi can detect obstacles in its path and adjust its movements to avoid collisions.
 
 - Object Collection: Using a color sensor and a fork-like arm, the robot can identify and collect specific objects efficiently.
 
@@ -229,13 +230,13 @@ As a result of Räumi's advanced features, it is capable of completing these tas
 
 - Efficient Arm Movements: The robot's code enables precise and efficient movements of its collection arm, ensuring optimal positioning for object retrieval.
 
-In summary, Räumi is a versatile robot that can autonomously explore environments, collect specific objects, and organize them based on color, showcasing a sophisticated interplay of hardware and software capabilities.
+In summary, Räumi is a versatile robot that can explore environments autonomously, collect specific objects, and organize them based on color, showcasing a sophisticated interplay of hardware and software capabilities.
 
 
 ## 7 Strengths and weaknesses
 
 ### 7.1 Strengths:
-- Versatility: Räumi demonstrates versatility by autonomously navigating spaces, collecting specific objects, and sorting them based on color.
+- Versatility: Räumi demonstrates versatility by navigating spaces autonomously, collecting specific objects, and sorting them based on color.
 
 - Obstacle Avoidance: The inclusion of an ultrasound sensor enables effective obstacle detection, allowing the robot to navigate without collisions.
 
@@ -266,11 +267,3 @@ Building sets used:
 - https://www.lego.com/de-de/product/lego-education-spike-prime-set-45678                                                                                          
   LEGO® Education SPIKE™ Prime-expansion set:
 - https://www.lego.com/de-de/product/lego-education-spike-prime-expansion-set-45681 
-
-
-## (Delete this in the end) General tasks:
-Julian: make and cut Videos and Photos
-
-Sara: check grammar and spelling
-
-
