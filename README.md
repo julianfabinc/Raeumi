@@ -234,7 +234,7 @@ In summary, Räumi is a versatile robot that can explore environments autonomous
 
 
 ## 8 Strengths and weaknesses
-The following section takes a closer look at the strengths and weaknesses of the robot. In addition to the functionality, individual aspects of the hardware and the interaction of individual components are also discussed.
+The following section takes a closer look at the strengths and weaknesses of the robot. In addition to the functionality, individual aspects of the hardware and the interaction of individual components are also discussed. The weaknesses also show how the robot can be optimized in further projects.
 
 ### 8.1 Strengths:
 - Versatility: Räumi demonstrates versatility by navigating spaces autonomously, collecting specific objects, and sorting them based on color.
