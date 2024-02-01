@@ -7,6 +7,8 @@ Additionally, we provide a video which shows how we built the hardware of Räumi
 https://youtu.be/BqY5DrDXUPw
 
 ## 1 General information:
+<img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/cd875673-ce7e-40c5-a0e0-13f7b6c3e03c" height=330 />
+
 Räumi is  designed for navigation, obstacle avoidance, and object collection and sorting. Its stable base, equipped with a drive section featuring two wheels and motors, enables controlled movement. The robot's software includes code for forward movement, collision avoidance using an ultrasound sensor, and precise object collection with a fork-like arm. The color sensor helps sorting objects, and a unique mechanical linkage, "Schubkurbel," moves the object container for efficient sorting. Räumi showcases a seamless integration of hardware and software which make it a versatile and creative robotic solution.
 
 
