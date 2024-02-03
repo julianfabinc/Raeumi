@@ -58,10 +58,10 @@ The following is a list of the LEGO bricks needed to build the robot.
 - 2 Flex hose19m w/3. 18 stick, grey
   
 
-## 3 Navigating through the room
+## 3 Base and forward movement
 In this section, we will provide building instructions for the base of the robot, which will form the basis for the next steps. We will also explain the code that makes the robot move forward.
 
-### 3.1
+### 3.1 Building the Base
 At the beginning of our project, we needed a base with enough space for the computer, the drive section, the collection arm, and especially the object container. Therefore, we built a base using the bricks in the picture below.
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/06e295b1-b751-4774-b193-b87c21b7fc46" height=200 />
