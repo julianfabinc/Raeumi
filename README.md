@@ -93,7 +93,10 @@ This code causes the robot to keep driving straight ahead. In the following sect
 
 
 ## 4 Avoid collisions with obstacles
-Now, the robot can drive straight forward or in curves and even turn while staying in the same position. However, it does not know yet when to do what. Our goal was that the robot usually drives straight ahead; if it comes across obstacles, it should stop and turn in another direction. In order to achieve that we required an ultrasound sensor. It would be best if you had the following bricks:
+Now, the robot can drive straight forward. Our goal was that the robot usually drives straight ahead; if it comes across obstacles, it should stop and turn in another direction. In this section, we will describe which hardware and software construction steps are necessary for the robot to be able to recognize and avoid obstacles.
+
+### 4.1 Building the hardware for collision avoidance
+An ultrasonic sensor is required to enable the robot to detect and avoid obstacles. It would be best if you had the following bricks:
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/60d8a8e6-0501-45d7-852f-f1fc43565d9b" height=200 />
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/bd8cd66d-e2d4-48f7-8513-11cdbf8bbc60" height=200 />
@@ -101,7 +104,7 @@ Now, the robot can drive straight forward or in curves and even turn while stayi
 The challenge here was to detect the obstacles to prevent collision. Moreover, the goal was not to stop if it comes across one of the objects but to collect it. Therefore, the sensor was placed in sufficient height. Additionally, the sensor should not interfere with the collection arm, hence it was not placed at the center but more on the robot's left side. 
 Now, we only have to implement when to stop and what to do if we encounter an obstacle.
 
-### 4.1 Code description for collision avoidance
+### 4.2 Code description for collision avoidance
 For collision avoidance, we first create another custom block named "reverse and turn." In the first line, we set the speed for the robot to move backward. The following line defines how far the robot should move backward. We have chosen a distance of 7 cm to ensure that the robot avoids colliding with an obstacle during the turn. The third line specifies how the robot should turn. We have decided that the robot should always turn to the right, selecting a random angle between 360 and 560 degrees. We opted for a random angle to allow the robot to cover as much area of the room as quickly as possible.
 
 <img  src = "https://github.com/julianfabinc/Raeumi/assets/153218995/fd33fef6-f4a4-4107-b820-000748e18ebd" height = 200/>
@@ -116,6 +119,9 @@ The following image displays our complete Lego Spike code for room navigation an
 
 
 ## 5 Collecting objects
+The robot can now navigate through the room without colliding with obstacles. The next section describes the hardware and software required for the robot to be able to collect specially designed objects, as well as the constraints involved and how we dealt with these constraints.
+
+### 5.1 Building the hardware for collecting objects
 First of all, we had to know what kind of objects we want to collect. At first, we wanted to have the opportunity to collect any object form. However, our collection arm would have to be very complex and need at least two or more ports on the computer to fulfill this task. The problem is that we only have three ports left, and we know we need at least one for the object container and one for the color sensor. This means we must construct a collection device with only one motor which makes it very hard to build something like a pair of pliers. So, we decided to use a fork to pick up objects. Nevertheless, this also means that we only can collect particular objects. 
 
 Next, let us look at how we want to identify the objects. Since we want to sort the objects according to their color, we need to place the color sensor at the center front. As objects usually lie on the ground, it makes sense to place the sensor as close as possible to the ground. This works efficiently on our base because we only have to mount it at the desired position. However, with the current design you need a good amount of luck that the objects come right in front of the sensor.
@@ -139,16 +145,16 @@ In summary, the robot arm comprises two segments connected by a hinge joint. The
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/af3a7dcd-2347-4c94-a41b-3b119b4c105a" height=200 />
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/5d2b069b-b9fb-4901-ac95-91c2e7620a23" height=200 />
 
-### 5.1 Code for collecting objects
+### 5.2 Code for collecting objects
 In this section, we first describe the code solely responsible for the arm movement. Later, sections will be added to this code for the collection and sorting. For the arm movement, there are two code segments to consider: one being our "base block," serving as the foundation for the execution of various code blocks, and another being a custom block.
 
-#### 5.1.1 Neutral starting position of the arm
+#### 5.2.1 Neutral starting position of the arm
 Firstly, we ensure that the arm is in a neutral starting position after the program starts, where it remains stable during the robot's movement through the room and does not impede the robot. For this purpose, a manual angle is set for the arm, where the link of the arm connected to the motor slightly points upwards, and the second link is folded backward. In our case, the angle is 205 degrees but may vary and should be individually determined. To achieve this angle at the program's start, the speed of the motor connected to the arm (in our case, this is port E) is set first. The following line specifies that the desired angle should be reached in the shortest path. "Motor blocks" are used for these two lines.
 The "basic block" with the changes mentioned is shown below.
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/1a0b62f1-ce55-4fb1-85df-d62e6c75ef57" height = 350/>
 
-#### 5.1.2 Collecting objects
+#### 5.2.2 Collecting objects
 This section will initially explain the code solely for collecting a green object. Changes will be made to our "base block," and another custom block, "color green," will be created.  
 
 A new if-condition is introduced into the infinite loop of our "base block," which is based on the output of the color sensor (in our case, port C). In this scenario, the condition specifies what should be executed when the color sensor detects the color green. The custom block "color green" is designed to handle this situation.
@@ -182,7 +188,7 @@ The following image displays the entire code required for the robot to navigate 
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/b55e1926-3aaa-4b8d-980a-bfa6016d62fb" height = 350/>
 
-### 5.1.3. Objects
+### 5.2.3. Objects
 Of course, we still need objects to be picked up. Since we want to sort them according to their color, we need similar or identical objects of different colors. Additionally, they should allow the arm to pick them up. As the objects are very light and do not have much resistance,  the easiest way seems to build something on top of them, allowing the arm to thread in. Moreover, since our robot cannot turn the objects around into a particular position,it should be possible to thread in from any direction. Thus, we constructed the objects as the following:
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/74a605e0-2750-4dd9-8b61-1b2e8dd897d6" height=200 />
@@ -190,7 +196,10 @@ Of course, we still need objects to be picked up. Since we want to sort them acc
 
 
 ## 6 Sorting Objects of different colors
-Now that the robot can pick up the objects, it needs to sort them by color. The color sensor detects the color and the objects must be moved to the right container. This can be achieved in two ways: Moving the arm to the right container or moving the container to the position. We decided to move the container to the right position because the collection arm already had a height fitting to pick up the objects. 
+Now that the robot can pick up the objects, it needs to sort them by color. In the following, we will describe which hardware and software adjustments are necessary for this. 
+
+### 6.1 Building the hardware for sorting objects
+The color sensor detects the color and the objects must be moved to the right container. This can be achieved in two ways: Moving the arm to the right container or moving the container to the position. We decided to move the container to the right position because the collection arm already had a height fitting to pick up the objects. 
 
 Since the objects were pretty big, the container  also had to be big enough for the objects to fit inside. Additionally, several ways exist to move the container to the required position. One way would be to rotate the container 180°. The other, probably better, is moving it from side to side. This has the advantage that it can be stabilized more efficiently, and it seems more natural. However, in order to move the container from side to side, we had to translate the circular movement of the motor into a straight movement. Therefore, we build a mechanical linkage called "Schubkurbel" which is the same linkage as in a petrol engine. For this linkage, we need a rail in which one part of the linkage can move from side to side. This is the part that will be connected to the object container. For this, we need the bricks as follow:
 
@@ -208,7 +217,7 @@ The big container is only mounted on the narrow linkage, requiring further stabi
 
 The robot has all the hardware it needs to fulfill its task. However, there is still some work to do on the software
 
-### 6.1 Code for sorting objects
+### 6.2 Code for sorting objects
 Only a few additional modifications are needed in the code to ensure the robot can correctly sort objects into the collection container based on their colors. Firstly, we need a neutral starting position for the collection container after the program initiates, similar to what we did for the arm. For this, we manually identify the motor angle where the collection container is centered on the robot (in our case, 10 degrees). After determining this angle, we add two lines of "Motor Blocks" in the "Base Block" to control the motor responsible for the platform's movement (in our case, Port F). In the first line, we set the speed to 15%; in the second line, we define how the target angle should be reached. The "Base Block" modifications are shown in the image below.
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153218995/136cadcc-9f3a-4650-a3f0-c506b8c0128e" height = 350/>
