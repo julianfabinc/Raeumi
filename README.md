@@ -13,6 +13,7 @@ Räumi is  designed for navigation, obstacle avoidance, and object collection an
 
 
 ## 2 Used LEGO parts
+The following is a list of the LEGO bricks needed to build the robot.
 - 2 Large Motor
 - 2 Medium Motor
 - 1 Distance Sensor
