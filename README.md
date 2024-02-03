@@ -59,6 +59,9 @@ The following is a list of the LEGO bricks needed to build the robot.
   
 
 ## 3 Navigating through the room
+In this section, we will provide building instructions for the base of the robot, which will form the basis for the next steps. We will also explain the code that makes the robot move forward.
+
+### 3.1
 At the beginning of our project, we needed a base with enough space for the computer, the drive section, the collection arm, and especially the object container. Therefore, we built a base using the bricks in the picture below.
 
 <img src = "https://github.com/julianfabinc/Raeumi/assets/153210113/06e295b1-b751-4774-b193-b87c21b7fc46" height=200 />
@@ -77,7 +80,7 @@ Then, the wheel got mounted to the base. It's important not to forget to connect
 
 Now, the hardware allows the robot to drive. However, we need to implement the software first.
 
-### 3.1 Forward Movement Code Description
+### 3.2 Forward Movement Code Description
 To move the robot forward, we need two code blocks. The first block ("base block") begins with an "Event" block and is the foundation for our subsequent code. This "Event" block determines what happens when the program starts. For forward movement, we initially define the motors responsible for propulsion (in our case, the motors connected to ports A and B), along with a loop that executes the custom "forward" block.
 
 Now, let us create a custom code block named "Forward." The use of custom code blocks helps maintain code clarity. Within this block, we only need two "Movement" blocks. In the Lego Spike environment, individual motor control is not necessary for forward movement. The "Movement" blocks automatically control both motors.
